@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2001, 20main@github.com
+# Copyright (c) 2011, 20main@github.com
 # All rights reserved.
 #
 # Chicken Dance License v0.2
@@ -21,3 +21,4 @@ bsdtar -C ${basename} -xf ${isopath} || exit
 chmod -R u+w ${basename}
 echo ${basename} > iso_dir_name
 echo "ISO image extracted in ${basename} directory."
+

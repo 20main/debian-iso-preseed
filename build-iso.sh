@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2001, 20main@github.com
+# Copyright (c) 2011, 20main@github.com
 # All rights reserved.
 #
 # Chicken Dance License v0.2
@@ -26,16 +26,18 @@ fi
 # dependency
 which mkisofs > /dev/null || sudo aptitude install mkisofs
 
+# extract initrd.gz somewhere else
 mkdir initrd; cd initrd
 gunzip -c ../${sourcedir}/${installdir}/initrd.gz | sudo cpio -id
-cp ../preseed.cfg .
 
+# build a new initrd.gz including preseed.cfg
+cp ../preseed.cfg .
 find . | sudo cpio --create --format='newc' | gzip  > ../initrd.gz
 mv ../initrd.gz ../${sourcedir}/${installdir}/
 
+# prepare and build iso
 cd ../${sourcedir}
 md5sum $(find -type f ! -name "md5sum.txt" ! -path "./isolinux/*" ! -name "debian") > md5sum.txt
-
 cd ..
 chmod -R u-w ${sourcedir}
 sudo mkisofs -o ${sourcedir}_custom.iso \
@@ -51,3 +53,4 @@ me=$(id -u)
 sudo chown ${me}:${me} ${sourcedir}_custom.iso
 
 echo "Custom iso created: ${sourcedir}_custom.iso"
+
