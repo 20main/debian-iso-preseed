@@ -1,0 +1,11 @@
+# D-I config version 2.0
+default vesamenu.c32
+timeout 1
+
+default install
+label install
+    menu label ^Install
+    menu default
+    kernel /install.amd/vmlinuz
+    # pour amorçage réseau ajouter à append: preseed/url=http://host/preseed.cfg
+    append vga=788 initrd=/install.amd/initrd.gz -- quiet 

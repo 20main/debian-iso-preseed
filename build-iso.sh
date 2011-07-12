@@ -39,6 +39,7 @@ mv ../initrd.gz ../${sourcedir}/${installdir}/
 cd ../${sourcedir}
 md5sum $(find -type f ! -name "md5sum.txt" ! -path "./isolinux/*" ! -name "debian") > md5sum.txt
 cd ..
+[ -f "isolinux.cfg" ] && cp isolinux.cfg ${sourcedir}/isolinux/isolinux.cfg
 chmod -R u-w ${sourcedir}
 sudo mkisofs -o ${sourcedir}_custom.iso \
 	-V di$(date -u +%m%d%H%M%S) \
