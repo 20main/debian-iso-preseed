@@ -1,4 +1,3 @@
-# how
 1. `git clone git://github.com/20main/debian-iso-preseed.git`
 
 2. `cd debian-iso-preseed`
@@ -16,4 +15,4 @@
 # info
 preseed installation doc: http://www.debian.org/releases/stable/s390/apb.html
 
-the `preseed.cfg` file is a copy of http://www.debian.org/releases/squeeze/example-preseed.txt
+the `preseed.cfg.example` file is a copy of http://www.debian.org/releases/squeeze/example-preseed.txt
