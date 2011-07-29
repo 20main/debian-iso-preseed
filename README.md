@@ -2,7 +2,7 @@
 
 	`./extract-iso.sh /path/to/iso/file.iso`
 
-2. customize iso and preseed.cfg file
+2. `cp preseed.cfg.example preseed.cfg`, customize iso and preseed.cfg file
 
 3. build the custom iso:
 
